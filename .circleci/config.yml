@@ -3,7 +3,6 @@
 version: 2.1
 orbs:
   node: circleci/node@5
-  python: circleci/python@2
 jobs:
   test-node:
     # Install node dependencies and run tests
@@ -22,20 +21,6 @@ jobs:
           command: npm run test --ci --runInBand --reporters=default --reporters=jest-junit
       - store_test_results:
           path: ./test-results/
-  test-python:
-    # Install dependencies and run tests
-    docker:
-      - image: cimg/python:3.8-node
-    working_directory: ~/project/python
-    steps:
-      - checkout:
-          path: ~/project
-      - python/install-packages
-      - run:
-          name: Run tests
-          command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
-      - store_test_results:
-          path: junit.xml
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
@@ -49,8 +34,6 @@ workflows:
   build-and-test:
     jobs:
       - test-node
-      - test-python
     # - deploy:
     #     requires:
     #       - test-node
-    #       - test-python
