@@ -29,6 +29,7 @@ describe("Database Tests", () => {
     expect(rows.length).toBe(total_test_users);
   });
 
+  // Test update & delete
   it("Test UPDATE and DELETE", async () => {
     let name = "Test user";
     let email = "test@user.com";
