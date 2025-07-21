@@ -149,7 +149,7 @@ CREATE TABLE `users` (
 
 ### Interactive Notebook
 
-The Jupyter notebook (`python/users.ipynb`) provides:
+The Jupyter notebook (`python/notebooks/users.ipynb`) provides:
 
 - Step-by-step database operations
 - Interactive code execution
@@ -243,4 +243,4 @@ logging.basicConfig(level=logging.DEBUG)
 
 ISC License - see [LICENSE](LICENSE) file for details
 
-For version history and changes, see [CHANGELOG.md](CHANGELOG.md)
+For version history and changes, see [docs/CHANGELOG.md](docs/CHANGELOG.md)

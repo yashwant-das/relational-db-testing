@@ -67,23 +67,23 @@ npm run test:all          # Run complete test suite
 npm run setup            # Install all dependencies
 ```
 
-## Benefits of Cleanup
+## Benefits of Reorganization
 
-1. **Simplified Setup**: One-command Docker setup
-2. **Fewer Files**: Reduced complexity and maintenance
-3. **Consistent Environment**: Docker ensures same setup everywhere
-4. **Easy Database Management**: Built-in scripts for common tasks
-5. **Clear Documentation**: Focused on the primary workflow
+1. **Better Organization**: Logical grouping of related files
+2. **Scalability**: Easy to add new features in dedicated directories
+3. **Maintainability**: Clear separation of concerns
+4. **Industry Standards**: Follows common project structure patterns
+5. **Tooling Support**: Better IDE navigation and understanding
 
-## Quick Start (Post-Cleanup)
+## Quick Start (Post-Reorganization)
 
 ```bash
 # Clone and setup
-git clone <repo-url>
+git clone https://github.com/yashwant-das/relational-db-testing.git
 cd relational-db-testing
 
 # One-command setup and test
-./setup-and-test.sh
+./scripts/setup-and-test.sh
 
 # Or manual setup
 npm run db:start
@@ -92,4 +92,4 @@ npm install
 npm test
 ```
 
-The project is now streamlined, Docker-first, and much easier to use! 🚀
+The project structure now follows **industry best practices** with clear organization! 🚀

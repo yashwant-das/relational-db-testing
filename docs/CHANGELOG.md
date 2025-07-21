@@ -13,12 +13,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Convenient npm scripts for database management
 - Streamlined setup process
 - GitHub Actions CI/CD workflow
+- Organized project structure with dedicated directories
 
 ### Changed
 
 - **BREAKING**: Simplified to Docker-only setup for consistency
 - Updated documentation to focus on Docker workflow
 - Streamlined environment configuration
+- **BREAKING**: Reorganized project structure following best practices:
+  - Moved source files to `/src` directory
+  - Moved tests to `/tests` directory  
+  - Moved documentation to `/docs` directory
+  - Moved scripts to `/scripts` directory
+  - Reorganized Python files with `/src` and `/notebooks` subdirectories
+- Renamed files for better clarity:
+  - `config.js` → `src/config/database.js`
+  - `sqlQueries.js` → `src/queries/user-queries.js`
+- Updated all import paths and script references
 
 ### Removed
 

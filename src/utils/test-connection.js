@@ -39,7 +39,7 @@ async function testDatabaseConnection() {
         console.log('🎉 All connection tests passed!');
         console.log('🎯 You can now run the full test suite:');
         console.log('   • Node.js tests: npm test');
-        console.log('   • Python tests: cd python && python users.py');
+        console.log('   • Python tests: cd python && python src/users.py');
         
     } catch (error) {
         console.log('❌ Database connection failed:');
