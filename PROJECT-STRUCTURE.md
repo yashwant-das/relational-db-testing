@@ -11,15 +11,19 @@ relational-db-testing/
 ├── python/
 │   ├── requirements.txt    # Python dependencies
 │   ├── users.py           # Python unittest implementation
-│   └── users.ipynb        # Jupyter notebook
+│   ├── users.ipynb        # Jupyter notebook
+│   └── venv/              # Python virtual environment (git-ignored)
 ├── .env                   # Environment variables (created from .env.example)
+├── .env.development       # Development-specific overrides
 ├── .env.example           # Environment template (Docker-ready)
 ├── .gitignore             # Git ignore rules
 ├── CHANGELOG.md           # Version history
 ├── config.js              # Database configuration for Node.js
 ├── docker-compose.yml     # Docker MySQL setup
+├── ENVIRONMENT.md         # Environment configuration guide
 ├── LICENSE                # ISC License
 ├── package.json           # Node.js dependencies and scripts
+├── PROJECT-STRUCTURE.md   # This file
 ├── README.md              # Main documentation
 ├── setup-and-test.sh      # Complete setup and test script
 ├── sqlQueries.js          # SQL queries with parameterized statements

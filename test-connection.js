@@ -55,7 +55,7 @@ async function testDatabaseConnection() {
         console.log('🔧 Quick fixes:');
         console.log('   • Copy .env.example to .env: cp .env.example .env');
         console.log('   • Edit .env with your database credentials');
-        console.log('   • Or use: ./test-without-docker.sh for guided setup');
+        console.log('   • Or start Docker database: npm run db:start');
         
         process.exit(1);
     }
@@ -71,7 +71,7 @@ if (!fs.existsSync('.env')) {
     console.log('   2. Edit .env with your database credentials');
     console.log('   3. Run this test again: node test-connection.js');
     console.log('');
-    console.log('💡 Or use guided setup: ./test-without-docker.sh');
+    console.log('💡 Or start Docker database: npm run db:start');
     process.exit(1);
 }
 

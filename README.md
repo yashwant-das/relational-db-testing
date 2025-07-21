@@ -24,7 +24,7 @@ A comprehensive package for testing relational database operations using both **
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/yashwant-das/relational-db-testing.git
 cd relational-db-testing
 
 # Run the automated setup and test script
