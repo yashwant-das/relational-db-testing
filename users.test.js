@@ -1,6 +1,6 @@
 const { createPool } = require("mysql2/promise");
-const faker = require("faker");
-const { createTableSQL, insertSQL, updateSQL, deleteSQL } = require('./sqlQueries');
+const { faker } = require("@faker-js/faker");
+const { createTableSQL, insertSQL, updateSQL, deleteSQL, selectAllSQL } = require('./sqlQueries');
 const { dbConfig } = require('./config');
 
 describe("Database Tests", () => {
@@ -19,12 +19,12 @@ describe("Database Tests", () => {
     let insertQueries = [];
 
     for (let i = 0; i < total_test_users; i++) {
-      insertQueries.push(connection.query(insertSQL(faker.name.findName(), faker.internet.email())));
+      insertQueries.push(connection.query(insertSQL, [faker.person.fullName(), faker.internet.email()]));
     }
 
     await Promise.all(insertQueries);
 
-    const [rows, fields] = await connection.query("SELECT * FROM users");
+    const [rows, fields] = await connection.query(selectAllSQL);
 
     expect(rows.length).toBe(total_test_users);
   });
@@ -35,18 +35,18 @@ describe("Database Tests", () => {
     let email = "test@user.com";
     let nameUpdate = "My Test User";
 
-    await connection.query(insertSQL(name, email));
+    await connection.query(insertSQL, [name, email]);
 
     //Run and test update
-    await connection.query(updateSQL(nameUpdate, email));
+    await connection.query(updateSQL, [nameUpdate, email]);
 
-    const [rows, fields] = await connection.query("SELECT * FROM users");
+    const [rows, fields] = await connection.query(selectAllSQL);
     expect(rows[0].name).toBe(nameUpdate);
 
     //Run and test delete
-    await connection.query(deleteSQL(email));
+    await connection.query(deleteSQL, [email]);
 
-    const [allrows] = await connection.query("SELECT * FROM users");
+    const [allrows] = await connection.query(selectAllSQL);
     expect(allrows.length).toBe(0);
   });
 

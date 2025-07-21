@@ -3,6 +3,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5
+  python: circleci/python@2.1.1
 jobs:
   test-node:
     # Install node dependencies and run tests
@@ -17,14 +18,31 @@ jobs:
       - run:
           command: npm install jest-junit
       - run:
-          name: Run tests
+          name: Run Node.js tests
           command: npm run test --ci --runInBand --reporters=default --reporters=jest-junit
       - store_test_results:
           path: ./test-results/
+  test-python:
+    # Install python dependencies and run tests
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+          app-dir: python
+      - run:
+          name: Run Python tests
+          command: |
+            cd python
+            python -m pytest users.py -v --tb=short
+          environment:
+            PYTHONPATH: .
 workflows:
   build-and-test:
     jobs:
       - test-node
+      - test-python
     # - deploy:
     #     requires:
     #       - test-node
+    #       - test-python

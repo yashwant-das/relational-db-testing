@@ -1,19 +1,22 @@
 {
   "name": "relational-db-testing",
-  "version": "1.0.0",
-  "description": "A package for testing relational databases",
+  "version": "1.1.0",
+  "description": "A comprehensive package for testing relational databases with both Node.js and Python implementations",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:all": "./run-tests.sh",
+    "setup": "npm install && cd python && pip install -r requirements.txt"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^30.0.4"
   },
   "dependencies": {
-    "faker": "^5.5.3",
-    "mysql2": "^3.9.2"
+    "@faker-js/faker": "^9.5.0",
+    "dotenv": "^17.2.0",
+    "mysql2": "^3.14.2"
   }
 }
