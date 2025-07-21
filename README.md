@@ -30,7 +30,7 @@ git clone https://github.com/yashwant-das/relational-db-testing.git
 cd relational-db-testing
 
 # Run the automated setup and test script
-./setup-and-test.sh
+./scripts/setup-and-test.sh
 ```
 
 This script will:
@@ -75,7 +75,7 @@ npm run test:connection
 
 # Run all tests
 npm test                     # Node.js tests
-cd python && python users.py     # Python tests
+cd python && python src/users.py     # Python tests
 
 # Stop database when done
 npm run db:stop
@@ -88,15 +88,28 @@ relational-db-testing/
 ├── .github/
 │   └── workflows/
 │       └── test.yml       # GitHub Actions CI/CD workflow
-├── config.js              # Database configuration for Node.js
-├── sqlQueries.js          # SQL queries with parameterized statements
-├── users.test.js          # Jest test suite
+├── docs/                  # Documentation
+│   ├── CHANGELOG.md
+│   └── ENVIRONMENT.md
+├── src/                   # Source code
+│   ├── config/
+│   │   └── database.js    # Database configuration
+│   ├── queries/
+│   │   └── user-queries.js # SQL queries with parameterized statements
+│   └── utils/
+│       └── test-connection.js
+├── tests/                 # Test files
+│   └── users.test.js      # Jest test suite
+├── scripts/               # Build and setup scripts
+│   └── setup-and-test.sh
+├── python/                # Python implementation
+│   ├── src/
+│   │   └── users.py       # Python unittest implementation
+│   ├── notebooks/
+│   │   └── users.ipynb    # Jupyter notebook for interactive testing
+│   └── requirements.txt   # Python dependencies
 ├── package.json           # Node.js dependencies and scripts
-├── .env.example           # Environment variables template
-└── python/
-    ├── requirements.txt   # Python dependencies
-    ├── users.py          # Python unittest implementation
-    └── users.ipynb       # Jupyter notebook for interactive testing
+└── .env.example           # Environment variables template
 ```
 
 ## Database Schema

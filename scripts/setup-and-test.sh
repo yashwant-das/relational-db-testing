@@ -3,7 +3,13 @@
 # Complete test setup and execution script using Docker
 # This script sets up everything needed and runs all tests
 
-echo "🚀 Relational Database Testing - Docker Setup & Test"
+echo🐍 Testing Python implementation...
+-----------------------------------
+cd python
+source venv/bin/activate
+python src/users.py
+PYTHON_EXIT_CODE=$?
+cd ..lational Database Testing - Docker Setup & Test"
 echo "===================================================="
 
 # Function to check if command exists
@@ -163,7 +169,7 @@ echo "- Restart MySQL: npm run db:start"
 echo "- View logs: npm run db:logs"
 echo "- Run individual tests:"
 echo "  • Node.js: npm test"
-echo "  • Python: cd python && source venv/bin/activate && python users.py"
+echo "  • Python: cd python && source venv/bin/activate && python src/users.py"
 
 if [ $NODE_EXIT_CODE -eq 0 ] && [ $PYTHON_EXIT_CODE -eq 0 ]; then
     echo ""

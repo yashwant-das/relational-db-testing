@@ -1,7 +1,7 @@
 const { createPool } = require("mysql2/promise");
 const { faker } = require("@faker-js/faker");
-const { createTableSQL, insertSQL, updateSQL, deleteSQL, selectAllSQL } = require('./sqlQueries');
-const { dbConfig } = require('./config');
+const { createTableSQL, insertSQL, updateSQL, deleteSQL, selectAllSQL } = require('../src/queries/user-queries');
+const { dbConfig } = require('../src/config/database');
 
 describe("Database Tests", () => {
   let connection;

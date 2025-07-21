@@ -1,6 +1,6 @@
-# Project Structure (After Cleanup)
+# Project Structure (Reorganized)
 
-This document shows the current simplified project structure after removing unnecessary files.
+This document shows the current organized project structure following best practices.
 
 ## File Structure
 
@@ -9,27 +9,36 @@ relational-db-testing/
 ├── .github/
 │   └── workflows/
 │       └── test.yml        # GitHub Actions CI/CD workflow
+├── docs/                   # Documentation files
+│   ├── CHANGELOG.md        # Version history
+│   ├── ENVIRONMENT.md      # Environment configuration guide
+│   └── PROJECT-STRUCTURE.md # This file
 ├── python/
-│   ├── requirements.txt    # Python dependencies
-│   ├── users.py           # Python unittest implementation
-│   ├── users.ipynb        # Jupyter notebook
+│   ├── src/
+│   │   └── users.py       # Python unittest implementation
+│   ├── notebooks/
+│   │   └── users.ipynb    # Jupyter notebook
+│   ├── requirements.txt   # Python dependencies
 │   └── venv/              # Python virtual environment (git-ignored)
+├── scripts/
+│   └── setup-and-test.sh  # Complete setup and test script
+├── src/
+│   ├── config/
+│   │   └── database.js    # Database configuration (renamed from config.js)
+│   ├── queries/
+│   │   └── user-queries.js # SQL queries (renamed from sqlQueries.js)
+│   └── utils/
+│       └── test-connection.js # Database connection tester
+├── tests/
+│   └── users.test.js      # Jest test suite
 ├── .env                   # Environment variables (created from .env.example)
 ├── .env.development       # Development-specific overrides
 ├── .env.example           # Environment template (Docker-ready)
 ├── .gitignore             # Git ignore rules
-├── CHANGELOG.md           # Version history
-├── config.js              # Database configuration for Node.js
 ├── docker-compose.yml     # Docker MySQL setup
-├── ENVIRONMENT.md         # Environment configuration guide
 ├── LICENSE                # ISC License
 ├── package.json           # Node.js dependencies and scripts
-├── PROJECT-STRUCTURE.md   # This file
-├── README.md              # Main documentation
-├── setup-and-test.sh      # Complete setup and test script
-├── sqlQueries.js          # SQL queries with parameterized statements
-├── test-connection.js     # Database connection tester
-└── users.test.js          # Jest test suite
+└── README.md              # Main documentation
 ```
 
 ## What Was Removed
