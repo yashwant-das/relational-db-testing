@@ -27,10 +27,8 @@ yarn-error.log*
 .vscode/
 .idea/
 
-# Ignore package-lock.json for npm
-package-lock.json
-
-# Ignore yarn.lock for Yarn
+# Note: package-lock.json should be committed for CI/CD
+# Ignore yarn.lock for Yarn (if using npm)
 yarn.lock
 
 # Ignore OS generated files
