@@ -20,52 +20,63 @@ A comprehensive package for testing relational database operations using both **
 
 ## Quick Start
 
-### 1. Clone and Setup
+### Automated Setup (Recommended)
 
 ```bash
+# Clone the repository
 git clone <repository-url>
 cd relational-db-testing
+
+# Run the automated setup and test script
+./setup-and-test.sh
 ```
 
-### 2. Environment Configuration
+This script will:
+- Check prerequisites (Docker, Node.js, Python)
+- Start MySQL database using Docker
+- Install all dependencies
+- Run comprehensive tests
+- Provide detailed results
 
-Copy the example environment file and configure your database credentials:
+### Manual Setup
 
+#### 1. Start Database
 ```bash
+# Start MySQL with Docker
+npm run db:start
+
+# Wait for MySQL to initialize (about 10 seconds)
+```
+
+#### 2. Setup Environment
+```bash
+# Copy environment file (no changes needed for Docker)
 cp .env.example .env
 ```
 
-Edit `.env` with your database credentials:
-
-```env
-DB_HOST=your-database-host
-DB_USER=your-username
-DB_PASSWORD=your-password
-DB_PORT=3306
-DB_NAME=UsersDB
-```
-
-### 3. Node.js Setup
-
+#### 3. Install Dependencies
 ```bash
-# Install dependencies
+# Node.js
 npm install
 
-# Run tests
-npm test
+# Python
+cd python
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-### 4. Python Setup
-
+#### 4. Run Tests
 ```bash
-# Navigate to python directory
-cd python
+# Test database connection
+npm run test:connection
 
-# Install dependencies
-pip install -r requirements.txt
+# Run all tests
+npm test                     # Node.js tests
+cd python && python users.py     # Python tests
 
-# Run tests
-python users.py
+# Stop database when done
+npm run db:stop
 ```
 
 ## Project Structure
@@ -153,6 +164,29 @@ The project includes CircleCI configuration for:
 4. Add tests for new functionality
 5. Ensure all tests pass
 6. Submit a pull request
+
+## Useful Commands
+
+```bash
+# Database management
+npm run db:start          # Start MySQL container
+npm run db:stop           # Stop MySQL container  
+npm run db:logs           # View MySQL logs
+
+# Testing
+npm run test:connection   # Test database connection
+npm test                  # Run Node.js tests
+npm run test:all          # Run complete test suite
+
+# Setup
+npm run setup            # Install all dependencies
+```
+
+## System Requirements
+
+- Node.js (v14 or higher)
+- Python 3.7+
+- Docker (for MySQL database)
 
 ## Environment Variables Reference
 

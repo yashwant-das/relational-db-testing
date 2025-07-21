@@ -1,12 +1,16 @@
 {
-  "name": "relational-db-testing",
+  "version": "1.2.0", "name": "relational-db-testing",
   "version": "1.1.0",
   "description": "A comprehensive package for testing relational databases with both Node.js and Python implementations",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:all": "./run-tests.sh",
-    "setup": "npm install && cd python && pip install -r requirements.txt"
+    "test:connection": "node test-connection.js",
+    "test:all": "./setup-and-test.sh",
+    "setup": "npm install && cd python && pip install -r requirements.txt",
+    "db:start": "docker-compose up -d",
+    "db:stop": "docker-compose down",
+    "db:logs": "docker-compose logs mysql"
   },
   "keywords": [],
   "author": "",

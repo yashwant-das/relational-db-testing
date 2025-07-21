@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-07-21
+
+### Added
+
+- Docker-first setup with docker-compose.yml
+- Convenient npm scripts for database management
+- Streamlined setup process
+
+### Changed
+
+- **BREAKING**: Simplified to Docker-only setup for consistency
+- Updated documentation to focus on Docker workflow
+- Streamlined environment configuration
+
+### Removed
+
+- Alternative setup scripts (test-without-docker.sh, run-tests.sh)
+- Complex multi-provider documentation
+- Redundant environment files (.env.local)
+- Detailed testing guide (merged into README)
+
+### Fixed
+
+- Removed obsolete docker-compose version warning
+- Simplified package.json scripts
+
 ## [1.1.0] - 2025-07-21
 
 ### Added
