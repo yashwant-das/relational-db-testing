@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/yashwant-das/relational-db-testing/actions/workflows/test.yml/badge.svg)](https://github.com/yashwant-das/relational-db-testing/actions/workflows/test.yml)
 
-A comprehensive package for testing relational database operations using both **Node.js** and **Python**. This project demonstrates CRUD (Create, Read, Update, Delete) operations with MySQL databases using modern testing frameworks.
+A comprehensive package for testing relational database operations using both **Node.js** and **Python**. This project demonstrates CRUD (Create, Read, Update, Delete) operations with MySQL databases using modern testing frameworks and **Docker** for consistent development environments.
 
 ## Features
 
@@ -10,15 +10,18 @@ A comprehensive package for testing relational database operations using both **
 - **Comprehensive Testing**: Jest and unittest frameworks with proper setup/teardown
 - **Security First**: Parameterized queries to prevent SQL injection
 - **Interactive Learning**: Jupyter notebook for exploration
+- **Docker-First Setup**: Containerized MySQL database for consistent environments
 - **CI/CD Ready**: GitHub Actions workflow included
 
 ## Prerequisites
 
+- **Docker** (recommended for MySQL database)
 - Node.js (v14 or higher)
 - Python 3.7+
-- MySQL database server
 - npm or yarn package manager
 - pip package manager
+
+*Note: Docker provides the easiest and most consistent setup experience.*
 
 ## Quick Start
 
@@ -34,11 +37,14 @@ cd relational-db-testing
 ```
 
 This script will:
+
 - Check prerequisites (Docker, Node.js, Python)
 - Start MySQL database using Docker
 - Install all dependencies
 - Run comprehensive tests
 - Provide detailed results
+
+**Why Docker?** Docker ensures consistent MySQL setup across all environments, eliminating "works on my machine" issues.
 
 ### Manual Setup
 
@@ -108,6 +114,7 @@ relational-db-testing/
 │   ├── notebooks/
 │   │   └── users.ipynb    # Jupyter notebook for interactive testing
 │   └── requirements.txt   # Python dependencies
+├── docker-compose.yml     # Docker MySQL setup
 ├── package.json           # Node.js dependencies and scripts
 └── .env.example           # Environment variables template
 ```
