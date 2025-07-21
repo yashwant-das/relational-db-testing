@@ -6,8 +6,9 @@ This document shows the current simplified project structure after removing unne
 
 ```
 relational-db-testing/
-├── .circleci/
-│   └── config.yml          # CircleCI configuration for automated testing
+├── .github/
+│   └── workflows/
+│       └── test.yml        # GitHub Actions CI/CD workflow
 ├── python/
 │   ├── requirements.txt    # Python dependencies
 │   ├── users.py           # Python unittest implementation

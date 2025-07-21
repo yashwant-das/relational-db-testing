@@ -17,7 +17,7 @@
     "db:logs": "docker-compose logs mysql"
   },
   "keywords": ["mysql", "database", "testing", "jest", "nodejs", "python", "docker", "crud"],
-  "author": "Yash Wantras Das",
+  "author": "Yashwant Das",
   "license": "ISC",
   "devDependencies": {
     "jest": "^30.0.4"

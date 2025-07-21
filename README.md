@@ -1,5 +1,7 @@
 # Relational Database Testing
 
+[![Tests](https://github.com/yashwant-das/relational-db-testing/actions/workflows/test.yml/badge.svg)](https://github.com/yashwant-das/relational-db-testing/actions/workflows/test.yml)
+
 A comprehensive package for testing relational database operations using both **Node.js** and **Python**. This project demonstrates CRUD (Create, Read, Update, Delete) operations with MySQL databases using modern testing frameworks.
 
 ## Features
@@ -8,7 +10,7 @@ A comprehensive package for testing relational database operations using both **
 - **Comprehensive Testing**: Jest and unittest frameworks with proper setup/teardown
 - **Security First**: Parameterized queries to prevent SQL injection
 - **Interactive Learning**: Jupyter notebook for exploration
-- **CI/CD Ready**: CircleCI configuration included
+- **CI/CD Ready**: GitHub Actions workflow included
 
 ## Prerequisites
 
@@ -83,13 +85,14 @@ npm run db:stop
 
 ```text
 relational-db-testing/
+├── .github/
+│   └── workflows/
+│       └── test.yml       # GitHub Actions CI/CD workflow
 ├── config.js              # Database configuration for Node.js
 ├── sqlQueries.js          # SQL queries with parameterized statements
 ├── users.test.js          # Jest test suite
 ├── package.json           # Node.js dependencies and scripts
 ├── .env.example           # Environment variables template
-├── .circleci/
-│   └── config.yml         # CircleCI configuration
 └── python/
     ├── requirements.txt   # Python dependencies
     ├── users.py          # Python unittest implementation
@@ -149,12 +152,13 @@ The Jupyter notebook (`python/users.ipynb`) provides:
 
 ## CI/CD
 
-The project includes CircleCI configuration for:
+The project includes GitHub Actions workflow for:
 
-- Automated testing on commits
-- Node.js test execution
-- Test result reporting
-- Artifact storage
+- Automated testing on push/pull requests
+- Node.js and Python test execution in parallel
+- MySQL database service integration
+- Cross-platform testing on Ubuntu
+- Test result reporting and artifact storage
 
 ## Contributing
 

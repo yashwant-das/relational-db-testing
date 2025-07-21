@@ -1,0 +1,117 @@
+name: Database Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-node:
+    name: Node.js Tests
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: test_root_password
+          MYSQL_DATABASE: UsersDB
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Wait for MySQL
+      run: |
+        until mysqladmin ping -h"127.0.0.1" --silent; do
+          echo 'Waiting for MySQL...'
+          sleep 2
+        done
+
+    - name: Create .env file
+      run: |
+        echo "DB_HOST=localhost" > .env
+        echo "DB_USER=test_user" >> .env
+        echo "DB_PASSWORD=test_password" >> .env
+        echo "DB_PORT=3306" >> .env
+        echo "DB_NAME=UsersDB" >> .env
+
+    - name: Test database connection
+      run: npm run test:connection
+
+    - name: Run tests
+      run: npm test
+
+  test-python:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: test_root_password
+          MYSQL_DATABASE: UsersDB
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Wait for MySQL
+      run: |
+        until mysqladmin ping -h"127.0.0.1" --silent; do
+          echo 'Waiting for MySQL...'
+          sleep 2
+        done
+
+    - name: Create .env file
+      run: |
+        echo "DB_HOST=localhost" > .env
+        echo "DB_USER=test_user" >> .env
+        echo "DB_PASSWORD=test_password" >> .env
+        echo "DB_PORT=3306" >> .env
+        echo "DB_NAME=UsersDB" >> .env
+
+    - name: Install Python dependencies
+      run: |
+        cd python
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Python tests
+      run: |
+        cd python
+        python users.py

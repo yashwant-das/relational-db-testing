@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Docker-first setup with docker-compose.yml
 - Convenient npm scripts for database management
 - Streamlined setup process
+- GitHub Actions CI/CD workflow
 
 ### Changed
 
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Complex multi-provider documentation
 - Redundant environment files (.env.local)
 - Detailed testing guide (merged into README)
+- CircleCI configuration (replaced with GitHub Actions)
 
 ### Fixed
 
@@ -38,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ISC License file (LICENSE)
 - Comprehensive documentation in README.md
 - Environment configuration with .env.example
-- CircleCI integration for Python tests
+- GitHub Actions workflow for automated testing
 - Test runner script (run-tests.sh)
 - Enhanced error handling and logging
 - Jupyter notebook with interactive demonstrations
@@ -80,5 +82,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic CRUD operations for MySQL database
 - Node.js implementation with Jest testing
 - Python implementation with unittest
-- Basic CircleCI configuration
+- Basic GitHub Actions configuration
 - Faker.js integration for test data generation
