@@ -198,6 +198,6 @@ logging.basicConfig(level=logging.DEBUG)
 
 ## License
 
-ISC License - see [LICENSE](LICENSE) file for details
+MIT. See [LICENSE](LICENSE).
 
 For version history and changes, see [docs/CHANGELOG.md](docs/CHANGELOG.md)

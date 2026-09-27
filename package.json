@@ -27,7 +27,7 @@
     "crud"
   ],
   "author": "Yashwant Das",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/preset-env": "^7.29.7",
     "jest": "^30.0.4"
